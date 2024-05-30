@@ -1,0 +1,320 @@
+body {
+    max-width: max-content;
+    margin: auto;
+    background-color: rgb(239,239,238);
+    background-image: url(imgs/adsback.png);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center;
+}
+.container {
+    position: relative;
+    margin-bottom: 4vw;
+    text-align: center;
+}
+
+.container img {
+    width: 70vw;
+}
+
+.text-container {
+    position: relative;
+    margin-top: 5vw;
+    text-align: center;
+    margin-bottom: 5vw;
+}
+.text {
+    color: #000000;
+    font-size: 7vw;
+    font-family: "Flamenco", system-ui;
+    font-weight: 300;
+    font-style: normal;
+    margin-bottom: 4vw;
+    text-align: center;
+    -webkit-text-stroke-width: 0.1vw;
+    -webkit-text-stroke-color: rgb(255, 255, 255);
+}
+
+.wrapper {
+    position: relative;
+    overflow-x: hidden;
+}
+
+.menu-btn {
+    position: fixed;
+    left: 0vw;
+    cursor: pointer;
+    z-index: 999;
+    transition: 0.5s;
+}
+.menu-btn img {
+    margin-top: 3vw;
+    margin-left: 3vw;
+    width: 9vw;
+}
+.menu {
+    position: fixed;
+    left: -45vw;
+    z-index: 998;
+    width: 40vw;
+    height: auto;
+    display: flex;
+    align-items: top;
+    justify-content: left;
+    background-color: rgba(120,120,120,0.9);
+    transition: 0.5s;
+    border-bottom-right-radius: 3vw;
+    border-bottom: double 1vw;
+    border-right: double 1vw;
+}
+.menu-toggle {
+    display: none;
+}
+.menu-toggle:checked + .menu-btn + .menu {
+    left: 0;
+}
+.menu-toggle:checked + .menu-btn {
+    left: calc(40vw + 3vw);
+}
+
+.menu-list {
+    display: flex;
+    justify-content: space-around;
+    height: 50vw;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-left: 3vw;
+    margin-top: 14vw;
+    margin-bottom: 14vw;
+}
+.menu-list a {
+    text-decoration: none;
+    font-size: 5vw;
+    font-family: "Flamenco", system-ui;
+    font-weight: 500;
+    font-style: normal;
+    color: white;
+    -webkit-text-stroke-width: 0.1vw;
+    -webkit-text-stroke-color: black;
+}
+
+.profile-btn {
+    position: fixed;
+    cursor: pointer;
+    right: 0vw;
+    z-index: 999;
+}
+.profile-btn img {
+    margin-top: 4vw;
+    margin-right: 3vw;
+    width: 9vw;
+}
+.profile-toggle {
+    display: none;
+}
+
+footer {
+    position: relative;
+    margin-top: 2vw;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff;
+    color: #000000;
+}
+.footer-container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 3vw 0;
+}
+.contact-info {
+    color: #000000;
+    font-size: 3vw;
+    font-family: "Flamenco", system-ui;
+    font-weight: 300;
+    font-style: normal;
+    text-align: left;
+    align-items: center;
+}
+.contact-info p {
+    margin-bottom: 1vw;
+}
+.contact-img {
+    margin-top: 4vw;
+}
+
+.filters {
+    position: relative;
+}
+
+.filter-btn {
+    position: relative;
+    top: 3vw;
+    margin-left: 3vw;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.filter-btn img {
+    width: 10vw;
+}
+.filter {
+    position: relative;
+    top: -100vw;
+    width: 100vw;
+    height: auto;
+    display: flex;
+    align-items: top;
+    justify-content: left;
+    background-color: rgba(239,239,238,0);
+    transition: 0.5s;
+    margin-top: 5vw;
+    flex-wrap: wrap;
+    padding: 1vw;
+    border: 1px solid #ccc;
+    margin-bottom: -24vw;
+}
+.filter-toggle {
+    display: none;
+}
+.filter-toggle:checked + .filter-btn + .filter {
+    top: 0;
+    margin-bottom: 0;
+}
+
+.filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.filter-list ul {
+    text-decoration: none;
+    margin-left: 1vw;
+    font-size: 3vw;
+    font-family: "Flamenco", system-ui;
+    font-weight: 500;
+    font-style: normal;
+    color: rgb(0, 0, 0);
+    border: 1px solid #ccc;
+    padding: 1vw;
+    margin-bottom: 1vw;
+    margin-top: 1vw;
+}
+ul li {
+    display: none;
+    font-weight: 300;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox]:checked ~ li {
+    display: block;
+}
+
+li input[type="checkbox"] {
+    display: inline;
+}
+
+.ad {
+    background-color: #fff;
+    border-radius: 2vw;
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
+    margin: 2vw;
+    overflow: hidden;
+}
+
+.pet-photo {
+    width: 100%;
+    height: auto;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    margin-top: 2vw;
+    margin-bottom: 0.5vw;
+    max-width: calc(100% - 4vw);
+    border-radius: 2vw;
+    font-size: 2vw;
+    font-family: "Flamenco", system-ui;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.ad-details {
+    padding: 2vw;
+    font-size: 3vw;
+    font-family: "Flamenco", system-ui;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.ad-details p {
+    margin: 1vw 0;
+}
+
+.extra-detail {
+    display: none;
+}
+
+.extra-detail.show {
+    display: block;
+}
+
+.expand-btn {
+    display: block;
+    width: 100%;
+    padding: 1vw;
+    background-color: #bd987b;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 2vw;
+    transition: margin-top 0.5s;
+    font-size: 3vw;
+    font-family: "Flamenco", system-ui;
+    font-weight: 500;
+    font-style: normal;
+    max-width: 60vw;
+    margin: auto;
+}
+
+.create-button {
+    border: 0;
+    border-radius: 3vw;
+    background-color: #a3a3a1;
+    padding: 2vw 4vw;
+    color: #ffffff;
+    font-size: 4vw;
+    font-family: "Flamenco", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    text-align: left;
+    cursor: pointer;
+    margin-top: 3vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.map-container {
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+.no {
+    font-size: 4vw;
+    font-family: "Flamenco", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    text-align: left;
+}

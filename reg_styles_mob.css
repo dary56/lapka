@@ -1,0 +1,86 @@
+body {
+    max-width: max-content;
+    margin: auto;
+    background-color: #f2f2f2;
+    background-image: url(imgs/dogsfull.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.form {
+    background-color: #ffffff;
+    padding: 4vw 4vw;
+    border-radius: 3vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3vw;
+    margin-top: 7vw;
+    font-size: 4vw;
+    font-family: "Flamenco", system-ui;
+    font-weight: 300;
+    width: 60vw;
+    border: double 1vw;
+    border-color: #dfbeb7;
+}
+.textarea {
+    height: 3vh;
+}
+.textmini {
+    font-size: 2.5vw;
+    font-family: "Flamenco", system-ui;
+    font-weight: 300;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    margin-top: 1vw;
+}
+.form-button {
+    border: 0;
+    border-radius: 3vw;
+    background-color: #a3a3a1;
+    padding: 2vw 4vw;
+    color: #ffffff;
+    font-size: 4vw;
+    font-family: "Flamenco", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 3vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form label {
+    margin-bottom: 1vw;
+}
+.form input {
+    margin-bottom: 1vw;
+}
+.text {
+    font-size: 6vw;
+    font-family: "Flamenco", system-ui;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    -webkit-text-stroke-width: 0.2vw;
+    -webkit-text-stroke-color: black;
+    color: #dfbeb7;
+    position: relative;
+    margin-top: 7vw;
+}
+/*.backcheck {
+    display: none;
+}*/
+.backbut {
+    position: fixed;
+    z-index: 999;
+    cursor: pointer;
+    left: 2.5vw;
+    top: 4vw;
+}
+.backbut img {
+    width: 15%;
+}
