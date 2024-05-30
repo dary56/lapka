@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,12 +11,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Flamenco:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="reg_styles_mob.css" media="only screen and (max-width: 768px)">
+    <link rel="stylesheet" type="text/css" href="reg_styles_mob.css">
 </head>
 <body>
     <a href="main.html" class="backbut"><img src="imgs/back.png"></a>
     <div class="text">Заполните форму</div>
-    <form action="" method="post" class="form">
+    <form action="" method="post" class="form" id="registration-form">
 
         <label for="name">Имя</label>
         <input class="textarea" type="text" id="name" name="name" placeholder="ник" required>
@@ -60,7 +64,7 @@
         <input class="textarea" type="text" id="login" name="login" placeholder="имя для входа в систему" required>
 
         <label for="password">Пароль</label>
-        <input class="textarea" type="password" id="password" name="password" placeholder="не менее 12 символов" required>
+        <input class="textarea" type="password" id="password" name="password" placeholder="не менее 12 символов" minlength="12" required>
       
         <input type="submit" class="form-button" name="registration" value="Создать профиль">
 
@@ -84,20 +88,17 @@
             })
             .catch(error => console.error('Ошибка:', error));
         });
+
+        document.getElementById('registration-form').addEventListener('submit', function(event) {
+            var password = document.getElementById('password').value;
+            if (password.length < 12) {
+                alert('Пароль должен содержать не менее 12 символов.');
+                event.preventDefault();
+            }
+        });
     </script>
 
     <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "lapka";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registration'])) {
         $name = $_POST['name'];
         $age = $_POST['age'];
@@ -107,17 +108,21 @@
         $login = $_POST['login'];
         $password = $_POST['password'];
 
-        // Хэширование пароля
-        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-
-        $sql = "INSERT INTO accounts (name, age, sex, city_id, area_id, login, password) 
-                VALUES ('$name', '$age', '$sex', '$city_id', '$area_id', '$login', '$hashed_password')";
-
-        if ($conn->query($sql) === TRUE) {
-            header("Location: ads.php");
-            exit();
+        if (strlen($password) < 12) {
+            echo "<p>Пароль должен содержать не менее 12 символов.</p>";
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            $password_hashed = password_hash($password, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO accounts (name, age, sex, city_id, area_id, login, password) 
+                    VALUES ('$name', '$age', '$sex', '$city_id', '$area_id', '$login', '$password_hashed')";
+
+            if ($conn->query($sql) === TRUE) {
+                echo '<script type="text/javascript">
+                        window.location.href = "avt.php";
+                      </script>';
+                exit();
+            } else {
+                echo "<p>Ошибка: " . $sql . "<br>" . $conn->error . "</p>";
+            }
         }
     }
 
